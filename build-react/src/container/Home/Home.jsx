@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import YoutubeComponent from '../../components/YoutubeComponent/YoutubeComponent'
+import Product from '../Product/Product'
 
 const data = [
     {
@@ -33,11 +34,12 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <p>Youtube Component</p>
+                {/* <p>Youtube Component</p>
                 <hr />
                 {data.map(({time, title, desc}) => (
                     <YoutubeComponent time={time} title={title} desc={desc}/>
-                ))}
+                ))} */}
+                <Product />
             </div>
         )
     }
