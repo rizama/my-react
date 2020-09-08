@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 // import YoutubeComponent from '../../components/YoutubeComponent/YoutubeComponent'
 // import Product from '../Product/Product'
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
+// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
+import BlogPost from '../BlogPost/BlogPost'
 
 export default class Home extends Component {
     data = [
@@ -49,17 +50,22 @@ export default class Home extends Component {
             <div>
                 {/* <p>Youtube Component</p>
                 <hr />
-                {this.data.map(({time, title, desc}) => (
-                    <YoutubeComponent time={time} title={title} desc={desc}/>
-                ))}
+                {
+                    this.data.map(({time, title, desc}) => (
+                        <YoutubeComponent time={time} title={title} desc={desc}/>
+                    ))
+                }
                 <p>Counter</p>
                 <hr />
                 <Product /> */}
-                <p>Counter</p>
+                {/* <p>Counter</p>
                 <hr />
                 {
                     this.state.showFuckingComponent ? <LifeCycleComp max="5"/> : null
-                }
+                } */}
+                <p>Blog Post</p>
+                <hr />
+                <BlogPost />
             </div>
         )
     }
