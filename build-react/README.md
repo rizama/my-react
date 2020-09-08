@@ -23,3 +23,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Lifecycle Component Part 1 #8-1 ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Lifecycle Component Part 2 #8-2 ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Interaksi Dengan Backend, pemanggilan API (GET) Part 1 #9-1 ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Interaksi Dengan Backend, pemanggilan API (GET) Part 1 #9-2 ReactJS Tutorial [Indonesia]
