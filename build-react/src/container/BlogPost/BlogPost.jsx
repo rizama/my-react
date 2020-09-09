@@ -5,7 +5,13 @@ import axios from 'axios'
 
 export default class BlogPost extends Component {
     state = {
-        posts: []
+        posts: [],
+        formBlogPost: {
+            id: 1,
+            title: '',
+            body: '',
+            userId: 1,
+        }
     }
 
     async getDataAPI() {
@@ -30,7 +36,6 @@ export default class BlogPost extends Component {
     }
 
     handleRemove = async (id) => {
-        console.log(id);
         try {
             await axios.delete(`http://localhost:3004/posts/${id}`)
             await this.getDataAPI();
@@ -39,11 +44,29 @@ export default class BlogPost extends Component {
         }
     }
 
+    handleChange = (event) => {
+        let copy_of_formBlogPost = {...this.state.formBlogPost}
+        let value_of_field = event.target.value
+        copy_of_formBlogPost[event.target.name] = value_of_field
+        this.setState({
+            formBlogPost: copy_of_formBlogPost
+        }, () => {
+            console.log("formBlogPost: ", this.state.formBlogPost);
+        })
+        
+    }
+
     render() {
         return (
             <Fragment>
-                <div>
                     <p className="section-title">Blog Post</p>
+                    <div className="form-add-post">
+                        <label htmlFor="title">Title</label>
+                        <input type="text" name="title" placeholder="Input Your Title" onChange={this.handleChange}/>
+                        <label htmlFor="body">Body</label>
+                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Input Content" onChange={this.handleChange}></textarea>
+                        <button className="btn-submit">Save</button>
+                    </div>
                     {
                         this.state.posts.map((post, index) => {
                             return (
@@ -51,7 +74,6 @@ export default class BlogPost extends Component {
                             )
                         })
                     }
-                </div>
             </Fragment>
         )
     }
