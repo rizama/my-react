@@ -19,7 +19,7 @@ export default class BlogPost extends Component {
         // }))
 
         // Using axios
-        let { data } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        let { data } = await axios.get('http://localhost:3004/posts')
         this.setState({
             posts: data
         })
