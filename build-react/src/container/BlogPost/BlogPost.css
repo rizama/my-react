@@ -45,3 +45,16 @@ content p.desc {
     font-size: 16px;
     color: #4a4a4a
 }
+
+.remove {
+    padding: 12px 18px;
+    background: tomato;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 15px;
+}
+
+.remove:hover{
+    cursor: pointer;
+}

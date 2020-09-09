@@ -8,6 +8,13 @@ export default class BlogPost extends Component {
         posts: []
     }
 
+    async getDataAPI() {
+        let { data } = await axios.get('http://localhost:3004/posts')
+        this.setState({
+            posts: data
+        })
+    }
+
     async componentDidMount() {
         // GET data FROM API after component finish Mounted
 
@@ -19,10 +26,17 @@ export default class BlogPost extends Component {
         // }))
 
         // Using axios
-        let { data } = await axios.get('http://localhost:3004/posts')
-        this.setState({
-            posts: data
-        })
+        await this.getDataAPI();
+    }
+
+    handleRemove = async (id) => {
+        console.log(id);
+        try {
+            await axios.delete(`http://localhost:3004/posts/${id}`)
+            await this.getDataAPI();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     render() {
@@ -33,7 +47,7 @@ export default class BlogPost extends Component {
                     {
                         this.state.posts.map((post, index) => {
                             return (
-                                <Post title={post.title} desc={post.body} key={post.id} />
+                                <Post key={post.id} data={post} remove={this.handleRemove} />
                             )
                         })
                     }

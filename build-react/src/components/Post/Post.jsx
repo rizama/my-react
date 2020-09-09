@@ -7,8 +7,9 @@ function Post(props) {
                 <img src="https://placeimg.com/200/150/any" alt="post" />
             </div>
             <div className="content">
-                <p className="title">{props.title}</p>
-                <p className="desc">{props.desc}</p>
+                <p className="title">{props.data.title}</p>
+                <p className="desc">{props.data.body}</p>
+                <button className="remove" onClick={() => props.remove(props.data.id)}>Remove</button>
             </div>
         </div>
     )
