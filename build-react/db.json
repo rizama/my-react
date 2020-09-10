@@ -2,12 +2,6 @@
   "posts": [
     {
       "userId": 1,
-      "id": 3,
-      "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-      "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-    },
-    {
-      "userId": 1,
       "id": 4,
       "title": "eum et est occaecati",
       "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
@@ -587,6 +581,24 @@
       "id": 100,
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
+    },
+    {
+      "id": 1599742373847,
+      "title": "Kangen",
+      "body": "Masa?",
+      "userId": 1
+    },
+    {
+      "id": 1599742422763,
+      "title": "Informasi Terkini",
+      "body": "Berita Terkini bro",
+      "userId": 1
+    },
+    {
+      "id": 1599742462725,
+      "title": "Penerapan Algoritma Simple Hill Climbing untuk Pencarian Lokasi Evakuasi Tsunami di Kecamatan Pelabuhan Ratu",
+      "body": "Abstract",
+      "userId": 1
     }
   ],
   "comments": [],

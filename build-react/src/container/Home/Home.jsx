@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import YoutubeComponent from '../../components/YoutubeComponent/YoutubeComponent'
-import Product from '../Product/Product'
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
+// import YoutubeComponent from '../../components/YoutubeComponent/YoutubeComponent'
+// import Product from '../Product/Product'
+// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
 import BlogPost from '../BlogPost/BlogPost'
 
 export default class Home extends Component {
@@ -13,7 +13,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <p>Youtube Component</p>
+                {/* <p>Youtube Component</p>
                 <hr />
                 <YoutubeComponent />
                 
@@ -25,7 +25,7 @@ export default class Home extends Component {
                 <hr />
                 {
                     this.state.showFuckingComponent ? <LifeCycleComp max="5"/> : null
-                }
+                } */}
 
                 <p>Blog Post</p>
                 <hr />
