@@ -26,3 +26,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Interaksi Dengan Backend, pemanggilan API (GET) Part 2 #9-2 ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Interaksi dengan Back-End, Pemanggilan API (FAKE API) Part 3 - #9-3 ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Interaksi dengan Back-End, Pemanggilan API (DELETE) Part 4 - #9-4 ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Pengenalan dan Cara Menginstall React Router (Routing Part 1) ReactJS Tutorial [Indonesia]
