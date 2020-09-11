@@ -82,7 +82,7 @@ export default class LifeCycleComp extends Component {
         console.log('render');
         return (
             <Fragment>
-                <p>LifeCycle Page</p>
+                <p className="title-page">LifeCycle Page</p>
                 <hr />
                 <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
             </Fragment>

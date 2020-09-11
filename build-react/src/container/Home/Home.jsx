@@ -1,9 +1,14 @@
+// Library 
 import React, { Component, Fragment } from 'react'
-import YoutubeComponent from '../../components/YoutubeComponent/YoutubeComponent'
-import Product from '../Product/Product'
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp'
-import BlogPost from '../BlogPost/BlogPost'
-import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
+
+// Pages
+import YoutubeComp from '../pages/YoutubeComp/YoutubeComp'
+import Product from '../pages/Product/Product'
+import LifeCycleComp from '../pages/LifeCycleComp/LifeCycleComp'
+import BlogPost from '../pages/BlogPost/BlogPost'
+
+// Style
 import './Home.css'
 
 export default class Home extends Component {
@@ -14,7 +19,7 @@ export default class Home extends Component {
 
     render() {
         return (
-            <BrowserRouter>
+            <Router>
                 <Fragment>
                     <div className="navigation">
                         <Link to="/">Youtube</Link>
@@ -22,12 +27,12 @@ export default class Home extends Component {
                         <Link to="/counter">Product</Link>
                         <Link to="/lifecycle">Lifecycle</Link>
                     </div>
-                    <Route path="/" exact component={YoutubeComponent}></Route>
+                    <Route path="/" exact component={YoutubeComp}></Route>
                     <Route path="/blog" component={BlogPost}></Route>
                     <Route path="/counter" component={Product}></Route>
                     <Route path="/lifecycle" component={LifeCycleComp}></Route>
                 </Fragment>
-            </BrowserRouter>
+            </Router>
         )
     }
 }

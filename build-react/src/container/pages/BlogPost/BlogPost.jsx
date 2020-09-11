@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './BlogPost.css'
-import Post from '../../components/Post/Post'
+import Post from '../../../components/Post/Post'
 import axios from 'axios'
 
 export default class BlogPost extends Component {
@@ -109,7 +109,7 @@ export default class BlogPost extends Component {
     render() {
         return (
             <Fragment>
-                <p>Blog Post Page</p>
+                <p className="title-page">Blog Post Page</p>
                 <hr />
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
