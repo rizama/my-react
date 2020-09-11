@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './YoutubeComponent.css'
 
 const YoutubeComponent = () => {
@@ -33,14 +33,16 @@ const YoutubeComponent = () => {
     return (
         data.map((datum, index) => {
             return (
-                <div className="youtube-wrapper" key={index}>
-                    <div className="img-thumb">
-                        <img src="https://www.inovex.de/blog/wp-content/uploads/2022/01/one-year-of-react-native.png" alt="" />
-                        <p className="time">{datum.time}</p>
+                <Fragment>
+                    <div className="youtube-wrapper" key={index}>
+                        <div className="img-thumb">
+                            <img src="https://www.inovex.de/blog/wp-content/uploads/2022/01/one-year-of-react-native.png" alt="" />
+                            <p className="time">{datum.time}</p>
+                        </div>
+                        <p className="title">{datum.title}</p>
+                        <p className="desc">{datum.desc}</p>
                     </div>
-                    <p className="title">{datum.title}</p>
-                    <p className="desc">{datum.desc}</p>
-                </div>
+                </Fragment>
             )
         })
     )

@@ -92,7 +92,7 @@ export default class BlogPost extends Component {
         let value_of_field = event.target.value
         let timestamp = new Date().getTime()
         if (!this.state.isUpdate) { copy_of_formBlogPost['id'] = timestamp }
-        copy_of_formBlogPost[event.target.name] = value_of_field
+        copy_of_formBlogPost[event.target.name] = value_of_field // akan mengedit sesuai attribute name nya.
         this.setState({
             formBlogPost: copy_of_formBlogPost
         })
@@ -109,6 +109,8 @@ export default class BlogPost extends Component {
     render() {
         return (
             <Fragment>
+                <p>Blog Post Page</p>
+                <hr />
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
                     <label htmlFor="title">Title</label>

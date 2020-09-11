@@ -16,6 +16,8 @@ export default class Product extends Component {
     render() {
         return (
             <Fragment>
+                <p>Product Page</p>
+                <hr />
                 <div className="header">
                     <div className="logo">
                         <img src="https://etanee.id/img/content/img_logo_etanee_white.svg" alt="syalala"/>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import './LifeCycleComp.css';
 
 export default class LifeCycleComp extends Component {
@@ -36,7 +36,7 @@ export default class LifeCycleComp extends Component {
         console.log('nextState', nextState);
         console.log('thisState', this.state);
         console.groupEnd()
-        console.log(parseInt(nextProps.max));
+        // console.log(parseInt(nextProps.max));
 
         // comparation use nextProps and nextState
         // if (parseInt(nextProps.max) < nextState.count) {
@@ -81,9 +81,11 @@ export default class LifeCycleComp extends Component {
     render() {
         console.log('render');
         return (
-            <div>
+            <Fragment>
+                <p>LifeCycle Page</p>
+                <hr />
                 <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
-            </div>
+            </Fragment>
         )
     }
 }
