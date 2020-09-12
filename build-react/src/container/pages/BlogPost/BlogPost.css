@@ -116,3 +116,7 @@ button.btn-submit {
 button:hover{
     cursor: pointer;
 }
+
+.content p.title:hover {
+    cursor: pointer;
+}
