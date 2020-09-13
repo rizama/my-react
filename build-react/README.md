@@ -29,3 +29,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Pengenalan dan Cara Menginstall React Router (Routing Part 1) ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Merapihkan Struktur & BrowserRouter to Router (Routing Part 2) ReactJS Tutorial  [Indonesia]
 * [:white_check_mark:] Mengirimkan params ke halaman detail React Router ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Pengenalan State Management Menggunakan Redux atau Context - ReactJS Tutorial [Indonesia]
