@@ -8,14 +8,33 @@ const initialState = {
 
 // Reducer (Pengupdate store, berupa function yang dapat merubah store)
 const rootReducer = (state = initialState, action) => {
-    return state
+    switch (action.type) {
+        case "ADD_AGE":
+            return {
+                ...state,
+                age: state.age + 1
+            }
+        case "CHANGE_VALUE":
+            return {
+                ...state,
+                value: state.value + action.newValue
+            }
+        default:
+            return state
+    }
+
 }
 
 // Store
 const store = createStore(rootReducer)
 console.log(store.getState());
 
-// Dispatching Action (Proses pemanggilan intruksi yang sediakan oleh Reducer)
-
-
 // Subcription
+store.subscribe(() => {
+    console.log("store change", store.getState());
+})
+
+// Dispatching Action (Proses pemanggilan intruksi yang sediakan oleh Reducer)
+store.dispatch({ type: "ADD_AGE" })
+store.dispatch({ type: "CHANGE_VALUE", newValue: 20 })
+console.log(store.getState());

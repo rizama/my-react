@@ -31,3 +31,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Mengirimkan params ke halaman detail React Router ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Pengenalan State Management Menggunakan Redux atau Context - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Memahami konsep Redux (Dispatch & Subscription) Redux Part 1 - ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Memahami konsep Redux (Dispatch & Subscription) Redux Part 2 - ReactJS Tutorial [Indonesia]
