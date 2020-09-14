@@ -1,7 +1,14 @@
 import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux';
 import './LifeCycleComp.css';
 
-export default class LifeCycleComp extends Component {
+const mapStateToProps = (stateGlobal) => {
+    return {
+        order: stateGlobal.totalOrder
+    }
+}
+
+export default connect(mapStateToProps)(class LifeCycleComp extends Component {
     constructor(props) {
         // karena kita extends Component, maka perlu super()
         super(props)
@@ -85,7 +92,10 @@ export default class LifeCycleComp extends Component {
                 <p className="title-page">LifeCycle Page</p>
                 <hr />
                 <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
+                <hr />
+
+                <p> Total Order: {this.props.order}</p>
             </Fragment>
         )
     }
-}
+})
