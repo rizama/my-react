@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class Counter extends Component {
-        // Uncomment this if you want to use state here
+// state pada fungsi ini merupakan stateGlobal yang dipanggil dari index.js
+const mapStateToProps = (stateGlobal) => {
+    return {
+        order: stateGlobal.totalOrder
+    }
+}
+
+export default connect(mapStateToProps)(class Counter extends Component {
+    // Uncomment this if you want to use state here
     // state = {
     //     order: this.props.onOrder
     // }
@@ -42,13 +50,14 @@ export default class Counter extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className="counter">
                 <button className="minus" onClick={this.handleMinus}> - </button>
                 {/* <input type="text" value={this.state.order}/> */}
-                <input type="text" value={this.props.onOrder} onChange={() => true} />
+                <input type="text" value={this.props.order} onChange={() => true} />
                 <button className="plus" onClick={this.handlePlus}> + </button>
             </div>
         )
     }
-}
+})
