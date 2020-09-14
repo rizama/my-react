@@ -33,3 +33,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Memahami konsep Redux (Dispatch & Subscription) Redux Part 1 - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Memahami konsep Redux (Dispatch & Subscription) Redux Part 2 - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Penerapan Redux pada React App (Setup, CreateStore, Reducer) - ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Penerapan Redux pada React App (Provider, Connect) - ReactJS Tutorial [Indonesia]
