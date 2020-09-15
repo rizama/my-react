@@ -83,9 +83,9 @@ class Counter extends Component {
                     value => {
                         return (
                             <div className="counter">
-                                <button className="minus" onClick={() => null}> - </button>
-                                <input type="text" value={value.totalOrder} onChange={() => true} />
-                                <button className="plus" onClick={() => null}> + </button>
+                                <button className="minus" onClick={() => value.dispatch({type: "MINUS_ORDER"})}> - </button>
+                                <input type="text" value={value.state.totalOrder} onChange={() => true} />
+                                <button className="plus" onClick={() => value.dispatch({type: "PLUS_ORDER"})}> + </button>
                             </div>
                         )
                     }

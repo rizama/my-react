@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
+import { RootContext } from '../../Home/Home';
 import './LifeCycleComp.css';
 
 const mapStateToProps = (stateGlobal) => {
@@ -85,17 +86,39 @@ class LifeCycleComp extends Component {
         })
     }
 
-    render() {
-        console.log('render');
-        return (
-            <Fragment>
-                <p className="title-page">LifeCycle Page</p>
-                <hr />
-                <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
-                <hr />
+    // Jika pakai props atau Redux
+    // render() {
+    //     console.log('render');
+    //     return (
+    //         <Fragment>
+    //             <p className="title-page">LifeCycle Page</p>
+    //             <hr />
+    //             <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
+    //             <hr />
 
-                <p> Total Order: {0}</p>
-            </Fragment>
+    //             <p> Total Order: {this.props.order}</p>
+    //         </Fragment>
+    //     )
+    // }
+
+    render() {
+        return (
+            <RootContext.Consumer>
+                {
+                    value => {
+                        return (
+                            <Fragment>
+                                <p className="title-page">LifeCycle Page</p>
+                                <hr />
+                                <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
+                                <hr />
+
+                                <p> Total Order: {value.state.totalOrder}</p>
+                            </Fragment>
+                        )
+                    }
+                }
+            </RootContext.Consumer>
         )
     }
 }

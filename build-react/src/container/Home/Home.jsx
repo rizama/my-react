@@ -17,13 +17,36 @@ const ProviderGlobal = RootContext.Provider
 
 export default class Home extends Component {
     state = {
-        totalOrder : 5
+        totalOrder: 5
+    }
+
+    dispatch = (action) => {
+        switch (action.type) {
+            case "PLUS_ORDER":
+                return this.setState({
+                    totalOrder: this.state.totalOrder + 1
+                })
+            case "MINUS_ORDER":
+                if (this.state.totalOrder <= 0) {
+                    return this.setState({
+                        totalOrder: 0
+                    })    
+                }
+                return this.setState({
+                    totalOrder: this.state.totalOrder - 1
+                })
+        }
     }
 
     render() {
         return (
             <Router>
-                <ProviderGlobal value={this.state}>
+                <ProviderGlobal value={
+                    {
+                        state: this.state,
+                        dispatch: this.dispatch
+                    }
+                }>
                     <Fragment>
                         <div className="navigation">
                             <Link to="/">Youtube</Link>
