@@ -1,5 +1,5 @@
 // Library 
-import React, { Component, Fragment } from 'react'
+import React, { Component, createContext, Fragment } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 // Pages
@@ -12,30 +12,34 @@ import DetailPost from '../pages/BlogPost/DetailPost/DetailPost'
 // Style
 import './Home.css'
 
-export default class Home extends Component {
+export const RootContext = createContext()
+const ProviderGlobal = RootContext.Provider
 
+export default class Home extends Component {
     state = {
-        showComponent: true
+        totalOrder : 5
     }
 
     render() {
         return (
             <Router>
-                <Fragment>
-                    <div className="navigation">
-                        <Link to="/">Youtube</Link>
-                        <Link to="/blog">Blogpost</Link>
-                        <Link to="/counter">Product</Link>
-                        <Link to="/lifecycle">Lifecycle</Link>
-                    </div>
-                    <Switch>
-                        <Route path="/" exact component={YoutubeComp}></Route>
-                        <Route path="/blog" component={BlogPost}></Route>
-                        <Route path="/detail-post/:id" component={DetailPost}></Route>
-                        <Route path="/counter" component={Product}></Route>
-                        <Route path="/lifecycle" component={LifeCycleComp}></Route>
-                    </Switch>
-                </Fragment>
+                <ProviderGlobal value={this.state}>
+                    <Fragment>
+                        <div className="navigation">
+                            <Link to="/">Youtube</Link>
+                            <Link to="/blog">Blogpost</Link>
+                            <Link to="/counter">Product</Link>
+                            <Link to="/lifecycle">Lifecycle</Link>
+                        </div>
+                        <Switch>
+                            <Route path="/" exact component={YoutubeComp}></Route>
+                            <Route path="/blog" component={BlogPost}></Route>
+                            <Route path="/detail-post/:id" component={DetailPost}></Route>
+                            <Route path="/counter" component={Product}></Route>
+                            <Route path="/lifecycle" component={LifeCycleComp}></Route>
+                        </Switch>
+                    </Fragment>
+                </ProviderGlobal>
             </Router>
         )
     }

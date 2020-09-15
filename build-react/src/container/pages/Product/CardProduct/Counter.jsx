@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ActionType from '../../../../redux/reducer/globalActionType'
+import { RootContext } from '../../../Home/Home'
 
 // state pada fungsi ini merupakan stateGlobal yang dipanggil dari index.js
 const mapStateToProps = (stateGlobal) => {
@@ -57,24 +58,39 @@ class Counter extends Component {
         }
     }
 
+    // jika pake props biasa atau Redux
+    // render() {
+    //     return (
+    //         <div className="counter">
+    //             {/* If use Redux */}
+    //             {/* <button className="minus" onClick={this.props.handleMinus}> - </button>
+    //             <input type="text" value={this.props.order} onChange={() => true} />
+    //             <button className="plus" onClick={this.props.handlePlus}> + </button> */}
+
+    //             {/* If use props from Product and local function */}
+    //             {/* <button className="minus" onClick={this.handleMinus}> - </button>
+    //             <input type="text" value={this.state.order} onChange={() => true}/>
+    //             <button className="plus" onClick={this.handlePlus}> + </button> */}
+    //         </div>
+    //     )
+    // }
+
+    // Jika pake Context
     render() {
         return (
-            <div className="counter">
-                {/* If use Redux */}
-                {/* <button className="minus" onClick={this.props.handleMinus}> - </button>
-                <input type="text" value={this.props.order} onChange={() => true} />
-                <button className="plus" onClick={this.props.handlePlus}> + </button> */}
-
-                {/* If use props from Product and local function */}
-                {/* <button className="minus" onClick={this.handleMinus}> - </button>
-                <input type="text" value={this.state.order} onChange={() => true}/>
-                <button className="plus" onClick={this.handlePlus}> + </button> */}
-
-                {/* If use Context */}
-                <button className="minus" onClick={()=>null}> - </button>
-                <input type="text" value={0} onChange={() => true} />
-                <button className="plus" onClick={()=>null}> + </button>
-            </div>
+            <RootContext.Consumer>
+                {
+                    value => {
+                        return (
+                            <div className="counter">
+                                <button className="minus" onClick={() => null}> - </button>
+                                <input type="text" value={value.totalOrder} onChange={() => true} />
+                                <button className="plus" onClick={() => null}> + </button>
+                            </div>
+                        )
+                    }
+                }
+            </RootContext.Consumer>
         )
     }
 }
