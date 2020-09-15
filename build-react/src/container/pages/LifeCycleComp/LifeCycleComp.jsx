@@ -8,7 +8,7 @@ const mapStateToProps = (stateGlobal) => {
     }
 }
 
-export default connect(mapStateToProps)(class LifeCycleComp extends Component {
+class LifeCycleComp extends Component {
     constructor(props) {
         // karena kita extends Component, maka perlu super()
         super(props)
@@ -94,8 +94,13 @@ export default connect(mapStateToProps)(class LifeCycleComp extends Component {
                 <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
                 <hr />
 
-                <p> Total Order: {this.props.order}</p>
+                <p> Total Order: {0}</p>
             </Fragment>
         )
     }
-})
+}
+
+// Using Redux
+// export default connect(mapStateToProps)(LifeCycleComp);
+
+export default LifeCycleComp;

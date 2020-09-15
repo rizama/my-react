@@ -5,47 +5,19 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './container/Home/Home'
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
+import rootReducer from './redux/reducer/globalReducer';
 
-
-// initial State Global
-const globalState = {
-    totalOrder: 1
-}
-
-// Reducer 
-const rootReducer = (state = globalState, action) => {
-    switch (action.type) {
-        case "ADD_ORDER":
-            return {
-                ...state,
-                totalOrder: state.totalOrder + 1
-            }
-        case "THROW_ORDER":
-            const min_order = 0;
-            if (state.totalOrder <= 0) {
-                return {
-                    ...state,
-                    totalOrder: min_order
-                }
-            }
-            return {
-                ...state,
-                totalOrder: state.totalOrder - 1
-            }
-        default:
-            return state
-    }
-}
 
 // Store Global
 const storeGlobal = createStore(rootReducer);
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={storeGlobal}> {/* untuk menyambungkan component ke store global */}
+        {/* <Provider store={storeGlobal}>
             <Home />
-        </Provider>
+        </Provider> */}
+        <Home />
     </React.StrictMode>,
     document.getElementById('root')
 );

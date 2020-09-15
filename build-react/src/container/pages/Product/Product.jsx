@@ -10,7 +10,7 @@ const mapStateToProps = (stateGlobal) => {
     }
 }
 
-export default connect(mapStateToProps)(class Product extends Component {
+class Product extends Component {
     // state = {
     //     order: 0
     // }
@@ -32,7 +32,8 @@ export default connect(mapStateToProps)(class Product extends Component {
                     </div>
                     <div className="troley">
                         <img src="https://etanee.id/img/icon/ic_cart_white.svg" alt="icon"/>
-                        <div className="count">{this.props.order}</div>
+                        {/* <div className="count">{this.props.order}</div> -> if use redux */}
+                        <div className="count">{0}</div>
                     </div>
                 </div>
                 {/* <CardProduct onCounterChange={this.handleCounterChange} onOrder={this.state.order}/> */}
@@ -42,4 +43,9 @@ export default connect(mapStateToProps)(class Product extends Component {
             </Fragment>
         )
     }
-})
+}
+
+// Using Redux
+// export default connect(mapStateToProps)(Product);
+
+export default Product;
