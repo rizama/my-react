@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
-import { RootContext } from '../../Home/Home';
+import { GlobalConsumer } from '../../../context/context';
 import './LifeCycleComp.css';
 
 const mapStateToProps = (stateGlobal) => {
@@ -87,38 +87,22 @@ class LifeCycleComp extends Component {
     }
 
     // Jika pakai props atau Redux
-    // render() {
-    //     console.log('render');
-    //     return (
-    //         <Fragment>
-    //             <p className="title-page">LifeCycle Page</p>
-    //             <hr />
-    //             <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
-    //             <hr />
-
-    //             <p> Total Order: {this.props.order}</p>
-    //         </Fragment>
-    //     )
-    // }
-
     render() {
+        console.log('render');
         return (
-            <RootContext.Consumer>
-                {
-                    value => {
-                        return (
-                            <Fragment>
-                                <p className="title-page">LifeCycle Page</p>
-                                <hr />
-                                <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
-                                <hr />
+            <Fragment>
+                <p className="title-page">LifeCycle Page</p>
+                <hr />
+                <button className="btn" onClick={this.changeCount}>Component Button {this.state.count}</button>
+                <hr />
 
-                                <p> Total Order: {value.state.totalOrder}</p>
-                            </Fragment>
-                        )
-                    }
-                }
-            </RootContext.Consumer>
+                {/* Jika pake redux */}
+                {/* <p> Total Order: {this.props.order}</p> */}
+
+                {/* Jika Pake Context */}
+                <p> Total Order: {this.props.state.totalOrder}</p>
+
+            </Fragment>
         )
     }
 }
@@ -126,4 +110,4 @@ class LifeCycleComp extends Component {
 // Using Redux
 // export default connect(mapStateToProps)(LifeCycleComp);
 
-export default LifeCycleComp;
+export default GlobalConsumer(LifeCycleComp);
