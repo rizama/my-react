@@ -25,10 +25,36 @@ const POST = (path, local, data) => {
     })
 }
 
+// PUT
+const PUT = (path, local, id, data) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let result = await axios.put(`${local ? hostLocal : hostOnline}/${path}/${id}`, data)
+            resolve(result)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+// DELETE
+const DELETE = (path, local, id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let result = await axios.delete(`${local ? hostLocal : hostOnline}/${path}/${id}`)
+            resolve(result)
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 
 const API = {
     GET,
-    POST
+    POST,
+    PUT,
+    DELETE
 }
 
 export default API

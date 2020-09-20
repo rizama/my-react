@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import './BlogPost.css'
 import Post from '../../../components/Post/Post'
 import axios from 'axios'
-import API from '../../../services'
+import API from '../../../services/request'
 
 export default class BlogPost extends Component {
     state = {
@@ -33,7 +33,8 @@ export default class BlogPost extends Component {
 
     handleRemove = async (id) => {
         try {
-            await axios.delete(`http://localhost:3004/posts/${id}`)
+            const local = true
+            await API.DELETE('posts', local, id)
             await this.getDataAPI();
         } catch (error) {
             console.log(error);
@@ -70,7 +71,8 @@ export default class BlogPost extends Component {
 
     putDataAPI = async () => {
         try {
-            await axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`, this.state.formBlogPost);
+            const local = true
+            await API.PUT('posts', local, this.state.formBlogPost.id, this.state.formBlogPost);
             await this.getDataAPI();
             await this.setState({
                 formBlogPost: {
