@@ -38,3 +38,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] State Management Dengan Context API (Consumer) - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Refactoring Context API dengan HOC - Context Part 1 - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Refactoring Context API dengan HOC - Context Part 2 - ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Global API Services (GET) - Part 1  - ReactJS Tutorial [Indonesia]

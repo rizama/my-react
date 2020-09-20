@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import './BlogPost.css'
 import Post from '../../../components/Post/Post'
 import axios from 'axios'
+import API from '../../../services'
 
 export default class BlogPost extends Component {
     state = {
@@ -12,7 +13,8 @@ export default class BlogPost extends Component {
             body: '',
             userId: 1,
         },
-        isUpdate: false
+        isUpdate: false,
+        comments: []
     }
 
     async componentDidMount() {
@@ -39,9 +41,12 @@ export default class BlogPost extends Component {
     }
 
     async getDataAPI() {
-        let { data } = await axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
-        await this.setState({
-            posts: data
+        const local = true
+        let data = await API.GET('posts?_sort=id&_order=desc', local)
+        let comments = await API.GET('comments', !local)
+        this.setState({
+            posts: data,
+            comments: comments
         })
     }
 
@@ -124,9 +129,18 @@ export default class BlogPost extends Component {
                     <button className="btn-submit" onClick={this.handleSubmit}>Save</button>
                 </div>
                 {
+                    this.state.comments.map((comment) => {
+                        if (comment.id < 10) {
+                            return (
+                                <p key={comment.id}>{comment.name} - {comment.email}</p>
+                            )
+                        }
+                    })
+                }
+                {
                     this.state.posts.map((post, index) => {
                         return (
-                            <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetail={this.handleDetail}/>
+                            <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetail={this.handleDetail} />
                         )
                     })
                 }
