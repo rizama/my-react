@@ -51,12 +51,13 @@ export default class BlogPost extends Component {
     }
 
     postDataAPI = () => {
-        axios.post(`http://localhost:3004/posts`, this.state.formBlogPost)
-            .then((res) => {
+        const local = true
+        API.POST('posts', local, this.state.formBlogPost)
+            .then((result) => {
                 this.getDataAPI();
                 this.setState({
                     formBlogPost: {
-                        id: 1,
+                        id: 1,  
                         title: '',
                         body: '',
                         userId: 1,
@@ -128,7 +129,7 @@ export default class BlogPost extends Component {
                     <textarea name="body" id="body" cols="30" rows="10" placeholder="Input Content" onChange={this.handleChange} value={this.state.formBlogPost.body}></textarea>
                     <button className="btn-submit" onClick={this.handleSubmit}>Save</button>
                 </div>
-                {
+                {/* {
                     this.state.comments.map((comment) => {
                         if (comment.id < 10) {
                             return (
@@ -136,7 +137,7 @@ export default class BlogPost extends Component {
                             )
                         }
                     })
-                }
+                } */}
                 {
                     this.state.posts.map((post, index) => {
                         return (
