@@ -42,3 +42,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Global API Services (POST) - Part 2  - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Global API Services (PUT & DELETE) - Part 3  - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] React Hooks - Pengenalan dan Implementasi - Part 1  - ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] React Hooks Side Effect atau LifeCycle Hooks - Part 2  - ReactJS Tutorial [Indonesia]
