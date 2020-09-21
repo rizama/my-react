@@ -8,6 +8,7 @@ import Product from '../pages/Product/Product'
 import LifeCycleComp from '../pages/LifeCycleComp/LifeCycleComp'
 import BlogPost from '../pages/BlogPost/BlogPost'
 import DetailPost from '../pages/BlogPost/DetailPost/DetailPost'
+import Hooks from '../pages/Hooks/Hooks'
 
 // Style
 import './Home.css'
@@ -23,6 +24,7 @@ class Home extends Component {
                         <Link to="/blog">Blogpost</Link>
                         <Link to="/counter">Product</Link>
                         <Link to="/lifecycle">Lifecycle</Link>
+                        <Link to="/hooks">Hooks</Link>
                     </div>
                     <Switch>
                         <Route path="/" exact component={YoutubeComp}></Route>
@@ -30,6 +32,7 @@ class Home extends Component {
                         <Route path="/detail-post/:id" component={DetailPost}></Route>
                         <Route path="/counter" component={Product}></Route>
                         <Route path="/lifecycle" component={LifeCycleComp}></Route>
+                        <Route path="/hooks" component={Hooks}></Route>
                     </Switch>
                 </Fragment>
             </Router>
