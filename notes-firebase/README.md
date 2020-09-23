@@ -14,3 +14,4 @@ You will also see any lint errors in the console.
 
 ## List Courses
 * [:white_check_mark:] Integrasi Firebase dengan Project ReactJS (Atomic Design)  - ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] Proses Registrasi / Sign Up menggunakan Firebase  - ReactJS Tutorial [Indonesia]
