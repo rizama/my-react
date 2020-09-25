@@ -1,7 +1,8 @@
 let initialState = {
     popup: false,
     isLogin: false,
-    name: "sam"
+    name: "sam",
+    isLoading: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 name: action.value
+            }
+        case "CHANGE_LOADING":
+            return {
+                ...state,
+                isLoading: action.value
             }
         default:
             return state;
