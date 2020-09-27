@@ -4,8 +4,6 @@ import Button from '../../../components/atoms/Button';
 import { loginUserAPI } from '../../../configs/redux/action';
 import { withRouter } from 'react-router-dom';
 
-
-
 class Login extends Component {
     state = {
         email: '',
@@ -19,12 +17,9 @@ class Login extends Component {
     }
 
     handleLoginSubmit = async () => {
-        console.log(this.props);
         const { email, password } = this.state
         const { history } = this.props;
-        console.log(`Data before send: ${email}, ${password}`);
         const result = await this.props.loginUser({ email, password }).catch(err => err)
-
         if (result) {
             console.log('login success');
             this.setState({

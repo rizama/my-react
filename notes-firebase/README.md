@@ -19,3 +19,4 @@ You will also see any lint errors in the console.
 * [:white_check_mark:] Setup Redux Thunk Pada Project Part 1  - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Setup Redux Thunk Pada Project Part 2  - ReactJS Tutorial [Indonesia]
 * [:white_check_mark:] Login dengan menggunakan Firebase  - ReactJS Tutorial [Indonesia]
+* [:white_check_mark:] POST / CREATE ke database Firebase (CRUD)  - ReactJS Tutorial [Indonesia]

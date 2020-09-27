@@ -1,3 +1,4 @@
+import { database } from 'firebase';
 import firebase from '../../firebase'
 
 // Use middleware thunk
@@ -38,12 +39,11 @@ export const loginUserAPI = (data) => (dispatch) => {
         dispatch({ type: "CHANGE_LOADING", value: true })
         firebase.auth().signInWithEmailAndPassword(data.email, data.password)
             .then(res => {
-                console.log(`Success:`, res)
-
                 const dataUser = {
                     email: res.user.email,
                     uid: res.user.uid,
-                    emailVerified: res.user.emailVerified
+                    emailVerified: res.user.emailVerified,
+                    refreshToken: res.user.refreshToken
                 }
 
                 dispatch({ type: "CHANGE_LOADING", value: false })
@@ -61,4 +61,12 @@ export const loginUserAPI = (data) => (dispatch) => {
                 reject(false)
             })
     })
+}
+
+export const postNotesAPI = (data) => (dispatch) => {
+    database().ref('notes/' + data.userId).push({
+        title: data.title,
+        date: data.date,
+        content: data.content
+    });
 }

@@ -1,10 +1,10 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/firestore'
+import 'firebase/database'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCQv6nXDu81wPoV7UoaxMcyMxso9w0Y22I",
     authDomain: "rizkysampratama.firebaseapp.com",
     databaseURL: "https://rizkysampratama.firebaseio.com",
@@ -16,5 +16,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+export const database = firebase.database();
 
 export default firebase;
