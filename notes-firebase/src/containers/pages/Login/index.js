@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Button from '../../../components/atoms/Button';
 import { loginUserAPI } from '../../../configs/redux/action';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -19,6 +19,7 @@ class Login extends Component {
     }
 
     handleLoginSubmit = async () => {
+        console.log(this.props);
         const { email, password } = this.state
         const { history } = this.props;
         console.log(`Data before send: ${email}, ${password}`);
