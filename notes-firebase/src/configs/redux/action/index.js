@@ -1,5 +1,4 @@
-import { database } from 'firebase';
-import firebase from '../../firebase'
+import firebase, { database } from '../../firebase'
 
 // Use middleware thunk
 export const actionUsername = () => {
@@ -49,7 +48,7 @@ export const loginUserAPI = (data) => (dispatch) => {
                 dispatch({ type: "CHANGE_LOADING", value: false })
                 dispatch({ type: "CHANGE_ISLOGIN", value: true })
                 dispatch({ type: "CHANGE_USER", value: dataUser })
-                resolve(true)
+                resolve(dataUser)
             })
             .catch(function (error) {
                 // Handle Errors here.
@@ -63,10 +62,27 @@ export const loginUserAPI = (data) => (dispatch) => {
     })
 }
 
-export const postNotesAPI = (data) => (dispatch) => {
-    database().ref('notes/' + data.userId).push({
+export const storeDataToAPI = (data) => (dispatch) => {
+    database.ref('notes/' + data.userId).push({
         title: data.title,
         date: data.date,
         content: data.content
     });
+}
+
+export const getDataFromAPI = (userId) => (dispatch) => {
+    const urlNotes = database.ref(`notes/${userId}`);
+    return new Promise((resolve, reject) => {
+        urlNotes.on('value', (snapshot) => {
+            const data = []
+            Object.keys(snapshot.val()).map(key => {
+                data.push({
+                    id: key,
+                    data: snapshot.val()[key]
+                })
+            });
+            dispatch({type: "SET_NOTES", value: data})
+            resolve(snapshot.val())
+        })
+    })
 }

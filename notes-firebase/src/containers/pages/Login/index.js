@@ -19,9 +19,12 @@ class Login extends Component {
     handleLoginSubmit = async () => {
         const { email, password } = this.state
         const { history } = this.props;
-        const result = await this.props.loginUser({ email, password }).catch(err => err)
+        const result = await this.props.loginUser({ email, password }).catch(err => err);
         if (result) {
-            console.log('login success');
+            console.log('login success', result);
+
+            localStorage.setItem('userData', JSON.stringify(result))
+
             this.setState({
                 email: '',
                 password: ''

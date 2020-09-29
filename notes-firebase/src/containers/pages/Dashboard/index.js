@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { postNotesAPI } from '../../../configs/redux/action';
+import { getDataFromAPI, storeDataToAPI } from '../../../configs/redux/action';
 import "./Dashboard.scss"
 
 class Dashboard extends Component {
@@ -11,9 +11,11 @@ class Dashboard extends Component {
         content: ''
     }
 
-
-    handlePage = (to) => {
-        this.props.history.push(`/${to}`)
+    async componentDidMount() {
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        const data = await this.props.getNotes(userData.uid)
+        console.log('notes direct from action', data);
+        console.log('notes from redux', this.props.notes);
     }
 
     handleOnChange = (event, type) => {
@@ -24,24 +26,19 @@ class Dashboard extends Component {
 
     handleSaveNotes = () => {
         const { title, content } = this.state
-
+        const userData = JSON.parse(localStorage.getItem('userData'));
         const data = {
             title,
             content,
             date: new Date().getTime(),
-            userId: this.props.userData.uid
+            userId: userData.uid
         }
         this.props.saveNotes(data)
     }
 
-    // componentDidMount() {
-    //     if (!this.props.isLogin) {
-    //         this.props.history.push(`/login`)
-    //     }
-    // }
-
     render() {
         const { title, content } = this.state
+        const { notes } = this.props
         return (
             <div className="container">
                 <p>Dashboard Page</p>
@@ -51,11 +48,24 @@ class Dashboard extends Component {
                     <button className="save-btn" onClick={this.handleSaveNotes}>Save</button>
                 </div>
                 <hr />
-                <div className="card-content">
-                    <p className="title">Title</p>
-                    <p className="date">21 Sep 2020</p>
-                    <p className="content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem expedita sapiente distinctio doloribus nam pariatur fuga tempora quibusdam nostrum impedit.</p>
-                </div>
+                {
+                    notes.length > 0 ? (
+                        <Fragment>
+                            {
+                                notes.map(note => {
+                                    return (
+                                        <div className="card-content" key={note.id}>
+                                            <p className="title">{note.data.title}</p>
+                                            <p className="date">{note.data.date}</p>
+                                            <p className="content">{note.data.content}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </Fragment>
+                    ) : null
+                }
+                
 
             </div>
         )
@@ -64,11 +74,13 @@ class Dashboard extends Component {
 
 const reduxState = (state) => ({
     isLogin: state.isLogin,
-    userData: state.user
+    userData: state.user,
+    notes: state.notes
 })
 
 const reduxDispatch = (dispatch) => ({
-    saveNotes: (data) => dispatch(postNotesAPI(data))
+    saveNotes: (data) => dispatch(storeDataToAPI(data)),
+    getNotes: (data) => dispatch(getDataFromAPI(data))
 })
 
 export default connect(reduxState, reduxDispatch)(withRouter(Dashboard));
