@@ -43,9 +43,15 @@
 			font-weight: bold;
 			text-transform: uppercase;
 			outline: none;
+			&.cancel {
+				border: 2px solid orange;
+				color: orange;
+			}
 		}
-		&:hover {
-			cursor: pointer;
+		.action-wrapper {
+			display: flex;
+			justify-content: space-between;
+			width: 40%;
 		}
 	}
 	.card-content {
@@ -54,6 +60,12 @@
 		padding: 16px;
 		box-shadow: 4px 3px 9px rgba(0,0,0,0.1);
 		margin-bottom: 16px;
+		transition: all ease;
+		&:hover {
+			cursor: pointer;
+			transform: translateY(-2px);
+			background: rgba(0,0,0,0.1);
+		}
 		p {
 			margin: 0px;
 		}

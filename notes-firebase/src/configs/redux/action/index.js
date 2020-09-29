@@ -81,8 +81,25 @@ export const getDataFromAPI = (userId) => (dispatch) => {
                     data: snapshot.val()[key]
                 })
             });
-            dispatch({type: "SET_NOTES", value: data})
+            dispatch({ type: "SET_NOTES", value: data })
             resolve(snapshot.val())
+        })
+    })
+}
+
+export const updateDataToAPI = (data) => (dispatch) => {
+    const urlNotes = database.ref(`notes/${data.userId}/${data.noteId}`);
+    return new Promise((resolve, reject) => {
+        urlNotes.set({
+            title: data.title,
+            date: data.date,
+            content: data.content
+        }, (error) => {
+            if (error) {
+                reject(false)
+            } else {
+                resolve(true)
+            }
         })
     })
 }
