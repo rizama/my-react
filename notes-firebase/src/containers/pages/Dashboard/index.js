@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getDataFromAPI, storeDataToAPI, updateDataToAPI } from '../../../configs/redux/action';
+import { getDataFromAPI, storeDataToAPI, updateDataToAPI, deleteDataFromAPI } from '../../../configs/redux/action';
 import "./Dashboard.scss"
 
 class Dashboard extends Component {
@@ -40,11 +40,15 @@ class Dashboard extends Component {
             this.props.saveNotes(data)
         } else {
             this.props.updateNotes(data)
+            this.setState({
+                title: '',
+                content: '',
+                textButton: 'simpan'
+            })
         }
     }
 
     changeFormToUpdate = ({ data, id }) => {
-        console.log(data, id);
         this.setState({
             title: data.title,
             content: data.content,
@@ -62,10 +66,20 @@ class Dashboard extends Component {
         })
     }
 
+    deleteNote = (element, note) => {
+        element.stopPropagation();
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        const data = {
+            userId: userData.uid,
+            noteId: note.id
+        }
+        this.props.deleteNotes(data)
+    }
+
     render() {
         const { title, content, textButton } = this.state
         const { notes } = this.props
-        const { cancelUpdate, handleSaveNotes, handleOnChange } = this
+        const { cancelUpdate, handleSaveNotes, handleOnChange, deleteNote } = this
         return (
             <div className="container">
                 <p>Dashboard Page</p>
@@ -90,6 +104,7 @@ class Dashboard extends Component {
                                             <p className="title">{note.data.title}</p>
                                             <p className="date">{note.data.date}</p>
                                             <p className="content">{note.data.content}</p>
+                                            <button className="delete-btn" onClick={(element) => deleteNote(element, note)}>X</button>
                                         </div>
                                     )
                                 })
@@ -111,7 +126,8 @@ const reduxState = (state) => ({
 const reduxDispatch = (dispatch) => ({
     saveNotes: (data) => dispatch(storeDataToAPI(data)),
     getNotes: (data) => dispatch(getDataFromAPI(data)),
-    updateNotes: (data) => dispatch(updateDataToAPI(data))
+    updateNotes: (data) => dispatch(updateDataToAPI(data)),
+    deleteNotes: (data) => dispatch(deleteDataFromAPI(data))
 })
 
 export default connect(reduxState, reduxDispatch)(withRouter(Dashboard));
