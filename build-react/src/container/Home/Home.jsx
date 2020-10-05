@@ -9,6 +9,7 @@ import LifeCycleComp from '../pages/LifeCycleComp/LifeCycleComp'
 import BlogPost from '../pages/BlogPost/BlogPost'
 import DetailPost from '../pages/BlogPost/DetailPost/DetailPost'
 import Hooks from '../pages/Hooks/Hooks'
+import Navigation from '../../components/Navigation'
 
 // Style
 import './Home.css'
@@ -19,13 +20,7 @@ class Home extends Component {
         return (
             <Router>
                 <Fragment>
-                    <div className="navigation">
-                        <Link to="/">Youtube</Link>
-                        <Link to="/blog">Blogpost</Link>
-                        <Link to="/counter">Product</Link>
-                        <Link to="/lifecycle">Lifecycle</Link>
-                        <Link to="/hooks">Hooks</Link>
-                    </div>
+                    <Navigation/>
                     <Switch>
                         <Route path="/" exact component={YoutubeComp}></Route>
                         <Route path="/blog" component={BlogPost}></Route>

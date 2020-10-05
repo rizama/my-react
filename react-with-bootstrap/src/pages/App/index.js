@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from 'assets/logos/logo.svg'
-import './App.css';
+import About from 'pages/About/About';
+import Contact from 'pages/Contact/Contact';
+import Home from 'pages/Home/Home';
+import NotFound from 'pages/404';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navigation from 'parts/Navigation';
+import Jumbotron from 'parts/Jumbotron';
+import Layout from 'pages/Layout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <Navigation />
+        <Jumbotron />
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <Route path="/about" component={About}></Route>
+            <Route path="/contact" component={Contact}></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
+        </Layout>
+      </Router>
+    </Fragment>
   );
 }
 
